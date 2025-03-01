@@ -15,6 +15,15 @@ async def hello(ctx):
     await ctx.send(f'Hola, soy un bot {bot.user}!')
 
 @bot.command()
+async def bye(ctx):
+    await ctx.send(f'Adios, ten un buen dia!')
+
+@bot.command()
+async def estado(ctx):
+    await ctx.send(f'Me encuentro en excelentes condiciones y tu?')
+
+
+@bot.command()
 async def heh(ctx, count_heh = 5):
     await ctx.send("he" * count_heh)
 
