@@ -4,6 +4,13 @@ from discord.ext import commands
 
 intents = discord.Intents.default()
 intents.message_content = True
+comandos_lista = ['!bye - Te despides del Bot',
+                   '!estado - Le preguntas al Bot como esta', 
+                   '!heh - Reperita la palabra "heh" cantidad de veces que quieras si pones el numero despues', 
+                   '!add - Se encargara de sumar los numeros que escribas(solo pueden ser 2 numeros)', 
+                   '!repeat - El Bot repetira la palabra que escribas la cantidad de veces que quieras', 
+                   '!bot - Descubrelo', 
+                   '!coinflip - El Bot lanzara una moneda al aire, y te dira que salio']
 
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -48,6 +55,12 @@ async def coinflip(ctx):
             resultado = 'sello'
         else:
             resultado = 'cara'
-        await ctx.send(f'He lanzado tu moneda, y cayó en...  ' + resultado )
+        await ctx.send('He lanzado tu moneda, y cayó en...  ' + resultado )
+@bot.command()
+async def comandos(ctx):
+    await ctx.send("Aquí te dejo una lista de los comandos disponibles:")
+    for comando in comandos_lista:
+        await ctx.send(comando)
+    await ctx.send('Recuerda usar "!" para que tu comando funcione.')
 
 bot.run("token")
